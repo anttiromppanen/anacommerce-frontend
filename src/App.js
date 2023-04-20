@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router';
 import { Container, CssBaseline } from '@mui/material';
 import { register } from 'swiper/element/bundle';
 
-import Navbar from './components';
+import { Navbar } from './components';
 import Home from './pages';
 
 register();

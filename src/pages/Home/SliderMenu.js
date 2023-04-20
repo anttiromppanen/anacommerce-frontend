@@ -17,19 +17,19 @@ function SliderMenu() {
   return (
     <swiper-container slides-per-view={screenBelow650px ? '3' : '5'}>
       {
-       data.map((category) => {
-         const Icon = menuItems[category];
+        data.map((category) => {
+          const Icon = menuItems[category];
 
-         return (
-           <swiper-slide>
-             <Stack alignItems="center">
-               <Icon sx={{ fontSize: screenLargerThanXs ? '80px' : '60px' }} />
-               <Typography variant="h6">{category}</Typography>
-             </Stack>
-           </swiper-slide>
-         );
-       })
-     }
+          return (
+            <swiper-slide>
+              <Stack alignItems="center">
+                <Icon sx={{ fontSize: screenLargerThanXs ? '70px' : '60px' }} />
+                <Typography variant="h6">{category}</Typography>
+              </Stack>
+            </swiper-slide>
+          );
+        })
+      }
     </swiper-container>
   );
 }
