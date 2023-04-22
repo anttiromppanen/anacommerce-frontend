@@ -1,7 +1,8 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Stack, Typography, useMediaQuery, useTheme,
 } from '@mui/material';
-import React from 'react';
 
 import { useFetchProductCategories } from '../../hooks/useGetProductCategories';
 import menuItems from '../../utils/productCategoryIconSelector';
@@ -22,7 +23,12 @@ function SliderMenu() {
 
           return (
             <swiper-slide>
-              <Stack alignItems="center">
+              <Stack
+                component={Link}
+                to={`/category/${category.toLowerCase()}`}
+                alignItems="center"
+                sx={{ textDecoration: 'none', color: 'inherit' }}
+              >
                 <Icon sx={{ fontSize: screenLargerThanXs ? '70px' : '60px' }} />
                 <Typography variant="h6">{category}</Typography>
               </Stack>

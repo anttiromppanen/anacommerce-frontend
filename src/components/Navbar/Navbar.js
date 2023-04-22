@@ -9,6 +9,7 @@ import Searchbar from './Searchbar';
 
 function Navbar() {
   const breakpoint400px = useMediaQuery('(max-width: 400px)');
+
   return (
     <Box>
       <AppBar position="static" elevation={0}>
