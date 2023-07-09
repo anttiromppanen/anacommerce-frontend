@@ -22,10 +22,10 @@ function SliderMenu() {
           const Icon = menuItems[category];
 
           return (
-            <swiper-slide>
+            <swiper-slide key={category}>
               <Stack
                 component={Link}
-                to={`/category/${category.toLowerCase()}`}
+                to={`/${category.toLowerCase()}`}
                 alignItems="center"
                 sx={{ textDecoration: 'none', color: 'inherit' }}
               >

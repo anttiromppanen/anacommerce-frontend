@@ -23,6 +23,7 @@ function PopularProducts() {
               <swiper-slide
                 lazy="true"
                 style={{ display: 'flex', justifyContent: 'center' }}
+                key={product.id}
               >
                 <ProductCard
                   name={product.name}

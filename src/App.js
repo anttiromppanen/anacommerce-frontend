@@ -6,6 +6,7 @@ import { register } from 'swiper/element/bundle';
 
 import { Navbar } from './components';
 import Home from './pages';
+import Category from './pages/Category/Category';
 
 register();
 
@@ -16,6 +17,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/:category" element={<Category />} />
       </Routes>
     </Container>
   );
