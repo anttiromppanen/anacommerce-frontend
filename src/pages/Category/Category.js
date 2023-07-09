@@ -1,7 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import { Typography } from '@mui/material';
+import {
+  Card, CardContent, CardMedia, Grid, Typography,
+} from '@mui/material';
 import { useFetchSubcategories } from '../../hooks/useGetSubcategories';
 
 function Category() {
@@ -13,7 +15,26 @@ function Category() {
   console.log(data[0]);
 
   return (
-    <div>{category}</div>
+    <Grid container>
+      {
+        data.map((subcategory) => (
+          <Grid item xs={4} md={2}>
+            <Card sx={{ width: 200 }} elevation={0}>
+              <CardMedia
+                sx={{ height: 100 }}
+                image="https://picsum.photos/200/300"
+                title="Subcategory icon"
+              />
+              <CardContent>
+                <Typography variant="h5">
+                  {subcategory.subcategoryName}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))
+      }
+    </Grid>
   );
 }
 
