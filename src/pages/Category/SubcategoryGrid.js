@@ -15,6 +15,7 @@ import {
   useTheme,
 } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Link, useLocation } from 'react-router-dom';
 
 const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
   height: 150,
@@ -52,6 +53,7 @@ const StyledCardContainer = styled(Box)(({ theme }) => ({
 function SubcategoryGrid({ isLoading, data }) {
   const theme = useTheme();
   const mobileViewIsActive = useMediaQuery(theme.breakpoints.only('xs'));
+  const { pathname } = useLocation();
 
   if (isLoading) return <Typography>Loading...</Typography>;
 
@@ -67,7 +69,10 @@ function SubcategoryGrid({ isLoading, data }) {
         lg={2}
         key={subcategory.subcategoryName}
       >
-        <StyledCardContainer>
+        <StyledCardContainer
+          component={Link}
+          to={`${pathname}/${subcategory.subcategoryName.toLowerCase()}`}
+        >
           <Card
             sx={{ width: mobileViewIsActive ? '100%' : 150 }}
             elevation={0}

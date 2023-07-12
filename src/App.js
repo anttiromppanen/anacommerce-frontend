@@ -5,8 +5,7 @@ import { Container, CssBaseline } from '@mui/material';
 import { register } from 'swiper/element/bundle';
 
 import { Navbar } from './components';
-import Home from './pages';
-import Category from './pages/Category/Category';
+import { Home, Category, ProductListing } from './pages';
 
 register();
 
@@ -18,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:category" element={<Category />} />
+        <Route path="/:category/:subcategory" element={<ProductListing />} />
       </Routes>
     </Container>
   );
