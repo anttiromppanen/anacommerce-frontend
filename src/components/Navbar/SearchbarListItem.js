@@ -16,11 +16,15 @@ const linkUrlSelector = (category, name, parentCategory = '') => {
 };
 
 function SearchbarListItem({
-  id, name, icon, apiCategory, parentCategory,
+  id, name, icon, apiCategory, parentCategory, handleClick,
 }) {
   return (
     <ListItem key={id} disablePadding>
-      <ListItemButton component={Link} to={linkUrlSelector(apiCategory, name, parentCategory)}>
+      <ListItemButton
+        component={Link}
+        to={linkUrlSelector(apiCategory, name, parentCategory)}
+        onClick={() => handleClick(name)}
+      >
         <ListItemAvatar>
           <Avatar src={icon} />
         </ListItemAvatar>
