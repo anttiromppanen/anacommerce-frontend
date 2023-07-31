@@ -42,6 +42,7 @@ function Searchbar() {
         <TextField
           {...params}
           label="Search"
+          InputLabelProps={{ shrink: false }}
           InputProps={{
             ...params.InputProps,
             type: 'search',
