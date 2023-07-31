@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Autocomplete,
   TextField,
@@ -10,11 +10,12 @@ import SearchbarListItem from './SearchbarListItem';
 import mockSearchbarData from '../../utils/mockData';
 
 function Searchbar() {
-  const [inputValue, setInputValue] = React.useState('');
-  const [open, setOpen] = React.useState(false);
-  const [forceClose, setForceClose] = React.useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [isInputFocused, setIsInputFocused] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [forceClose, setForceClose] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (forceClose) return undefined;
     if (!inputValue) setOpen(false);
     if (inputValue.length > 1) setOpen(true);
@@ -38,10 +39,12 @@ function Searchbar() {
       inputValue={inputValue}
       open={open}
       onClose={() => setOpen(false)}
+      onFocus={() => setIsInputFocused(true)}
+      onBlur={() => setIsInputFocused(false)}
       renderInput={(params) => (
         <TextField
           {...params}
-          label="Search"
+          label={isInputFocused ? '' : 'Search'}
           InputLabelProps={{ shrink: false }}
           InputProps={{
             ...params.InputProps,
